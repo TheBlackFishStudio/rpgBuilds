@@ -1,0 +1,8 @@
+
+/* CSS Nuevo */
+body{background-color: #1E1E1E;width: 100%;text-align: center;margin:0;}
+h1, h2, h3, h4, h5, h6, p{color:#fff}
+section{display: flex;flex-direction: row;flex-wrap: nowrap;align-content: center;justify-content: center;align-items: center;}
+button{cursor: pointer;}
+ul{padding: 0;margin: 0;}
+ul li{display: inline-block;margin: 0;}
