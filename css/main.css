@@ -6,3 +6,5 @@ section{display: flex;flex-direction: row;flex-wrap: nowrap;align-content: cente
 button{cursor: pointer;}
 ul{padding: 0;margin: 0;}
 ul li{display: inline-block;margin: 0;}
+.inicial{margin: 0;}
+#selectGame{display: none;}
