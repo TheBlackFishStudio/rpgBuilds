@@ -10,6 +10,8 @@ let insertSecDom = contenedor.appendChild(nuevoSection);
 let insertArtDom = contenedor.appendChild(nuevoArticle);
 let titulo = 'hola';
 let tituloSelectGame = 'Selecciona Dragons dogma';
+let listaDeJuegos = ["Selecciona un juego", "Dragon's Dogma", "The Witcher", "Wow", "Dragon Age"];
+
 
 
 
@@ -28,8 +30,28 @@ function contenidoIni(){
 }
 
 function buildSelectGame(){
-    contenedor.innerHTML = '<section id="selectGame"><article><h4>' + tituloSelectGame + '</h4></article><select id="selectGameOption" name="selectGameOption"><option value="option0">' + tituloSelectGame + '</option></select></section>';
+    contenedor.innerHTML = '<section id="selectGame" onLoad="cargaJuegosSelect()"><article><h4>' + tituloSelectGame + '</h4></article><select id="selectGameOption" name="selectGameOption"><option>Selecciona Dragons dogma</option></select></section>';
     console.log(contenedor);
+}
+
+function adOpciones(option, listaDeJuegos){
+    var select = document.getElementsByName("selectGameOption");
+
+    for (value in array){
+        let option = document.createElement('option');
+        option.text = listaDeJuegos[value];
+        select.add(option);
+    }
+}
+
+function cargaJuegos(){
+    listaDeJuegos.sort();
+    adOpciones("selectGameOption", listaDeJuegos);
+}
+console.log(adOpciones);
+
+function cargaJuegosSelect(){
+    cargaJuegos();
 }
 
 function hideSect(){
