@@ -10,8 +10,8 @@ let insertSecDom = contenedor.appendChild(nuevoSection);
 let insertArtDom = contenedor.appendChild(nuevoArticle);
 let titulo = 'hola';
 let tituloSelectGame = 'Selecciona Dragons dogma';
-let listaDeJuegos = ["Selecciona un juego", "Dragon's Dogma", "The Witcher", "Wow", "Dragon Age"];
-
+let listaDeJuegos = ["Dragon's Dogma", "The Witcher", "Wow", "Dragon Age"];
+let dragonsDogma = ["Luchador", "Strider", "Mago", "Guerrero", "Ranger", "Hechicero", "Asesino",  "Arquero Mágico", "Caballero Místico"];
 
 
 
@@ -30,11 +30,14 @@ function contenidoIni(){
 }
 
 function buildSelectGame(){
-    contenedor.innerHTML = '<section id="selectGame" onLoad="cargaJuegosSelect()"><article><h4>' + tituloSelectGame + '</h4></article><select id="selectGameOption" name="selectGameOption"><option>Selecciona Dragons dogma</option></select></section>';
+    contenedor.innerHTML = '<section id="selectGame" onLoad="listadoOrdenado()"><article><h4>' + tituloSelectGame + '</h4></article><select id="selectGameOption" name="selectGameOption"><option class="opJuego" onclick="mostrarJuegoSele()">Selecciona un juego</option></select></section>';
     console.log(contenedor);
 }
 
-function adOpciones(option, listaDeJuegos){
+
+//////////////////////////////////////////////
+/*Cod de internet*/
+/*function adOpciones(option, listaDeJuegos){
     var select = document.getElementsByName("selectGameOption");
 
     for (value in array){
@@ -42,17 +45,16 @@ function adOpciones(option, listaDeJuegos){
         option.text = listaDeJuegos[value];
         select.add(option);
     }
-}
 
 function cargaJuegos(){
     listaDeJuegos.sort();
-    adOpciones("selectGameOption", listaDeJuegos);
+    //adOpciones("selectGameOption", listaDeJuegos);
 }
-console.log(adOpciones);
-
-function cargaJuegosSelect(){
+/*function cargaJuegosSelect(){
     cargaJuegos();
-}
+}*/
+//////////////////////////////////////////////
+
 
 function hideSect(){
     let sectInicial = document.getElementById('inicial');
@@ -60,21 +62,43 @@ function hideSect(){
     buildSelectGame();
     let selectGame = document.getElementById('selectGame');
     selectGame.style.display="block";
-    console.log(buildSelectClass);
+    listadoJuegosOrdenado();
+    
 }
 
+///////////////////////////////////////////////
+/*Trabajado por mi*/
+
+function listadoJuegosOrdenado(){
+    let ordenarLista = listaDeJuegos.sort();
+    let selectorLista = document.getElementById('selectGameOption');
+    console.log(ordenarLista);
+    for (var i = 0; i < ordenarLista.length; i++){
+        selectorLista.options[i] = new Option(ordenarLista[i]);
+        selectorLista.options[i].value = (ordenarLista[i]);
+    };
+}
+
+
+
+function miFuncion(){
+    let variable = document.getElementsByClassName("opJuego");
+    console.log(variable);
+}
+
+
+///////////////////////////////////////////////
+
 function showSect(){
-    
-    
     console.log('muestra');
 }
 
-
+/*
 function buildIni(){
     console.log('test');
     hideSect();
     showSect();   
-}
+}*/
 
 
 function buildSelectClass(){
