@@ -1,4 +1,5 @@
 
+
 let nuevoSection = document.createElement('section'); //Creo un select
 let nuevoArticle = document.createElement('article'); //Creo un select
 let nuevoHeader = document.createElement('header');
@@ -11,9 +12,9 @@ let insertArtDom = contenedor.appendChild(nuevoArticle);
 let titulo = 'hola';
 let tituloSelectGame = 'Selecciona Dragons dogma';
 let listaDeJuegos = ["Dragon's Dogma", "The Witcher", "Wow", "Dragon Age"];
-let dragonsDogma = ["Luchador", "Strider", "Mago", "Guerrero", "Ranger", "Hechicero", "Asesino",  "Arquero Mágico", "Caballero Místico"];
-
-
+let dragonsDogma = ["Dragon's Dogma", "Luchador", "Strider", "Mago", "Guerrero", "Ranger", "Hechicero", "Asesino",  "Arquero Mágico", "Caballero Místico"];
+let theWitcher = ["The Witcher", "Luchador", "Strider", "Mago", "Guerrero"]
+let nombreListas =[theWitcher[0], dragonsDogma[0]];
 
 function contenidoIni(){
 
@@ -30,7 +31,7 @@ function contenidoIni(){
 }
 
 function buildSelectGame(){
-    contenedor.innerHTML = '<section id="selectGame" onLoad="listadoOrdenado()"><article><h4>' + tituloSelectGame + '</h4></article><select id="selectGameOption" name="selectGameOption"><option class="opJuego" onclick="mostrarJuegoSele()">Selecciona un juego</option></select></section>';
+    contenedor.innerHTML = '<section id="selectGame" onLoad="listadoOrdenado()"><article><h4>' + tituloSelectGame + '</h4></article><form action="feeding" method="post"><select id="selectGameOption" name="selectGameOption"<option class="opJuego" >Selecciona un juego</option></select></form><button onclick="imprimeJuegoSelect()">traiga la info porfis</button></section>';
     console.log(contenedor);
 }
 
@@ -68,9 +69,8 @@ function hideSect(){
 
 ///////////////////////////////////////////////
 /*Trabajado por mi*/
-
+let ordenarLista = listaDeJuegos.sort();
 function listadoJuegosOrdenado(){
-    let ordenarLista = listaDeJuegos.sort();
     let selectorLista = document.getElementById('selectGameOption');
     console.log(ordenarLista);
     for (var i = 0; i < ordenarLista.length; i++){
@@ -81,10 +81,26 @@ function listadoJuegosOrdenado(){
 
 
 
-function miFuncion(){
-    let variable = document.getElementsByClassName("opJuego");
-    console.log(variable);
+function imprimeJuegoSelect(){ 
+    let seleOpt = document.getElementById('selectGameOption');
+    let juegoSeleccionado = seleOpt.value;
+    if (juegoSeleccionado == dragonsDogma[0]) {
+        console.log(dragonsDogma);
+    } else if (juegoSeleccionado == theWitcher){
+        console.log(theWitcher);
+    } else {
+        console.log("no hay nada");
+    };
+    
 }
+
+function encuentraLista(){
+    if (imprimeJuegoSelect == dragonsDogma[0]) {
+        console.log(dragonsDogma);
+    }    
+}
+
+encuentraLista();
 
 
 ///////////////////////////////////////////////
